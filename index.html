@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rock, Paper, Scissors</title>
+
+</head>
+
+<body>
+
+    <script>
+
+
+
+function getComputerChoice () {
+
+const choice = ["Rock", "Paper", "Scissors"];
+
+const computerSelection = Math.floor(Math.random() * choice.length);
+return(choice[computerSelection])
+
+}
+
+console.log(getComputerChoice())
+
+
+
+
+const playerSelection = window.prompt("Choose your warrior:")
+  
+console.log (playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1,).toLowerCase());
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>
