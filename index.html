@@ -11,14 +11,12 @@
 
     <script>
 
-
-
 let choice = ["Rock", "Paper", "Scissors"];
+let playerSelection = playerChoice();
+
 
 
 //gets computer to choose randomly from three choices in an array
-
-
 
 function getComputerChoice() {
 
@@ -26,8 +24,6 @@ let compChoice = Math.floor(Math.random() * choice.length);
 let compChoiceString = String(compChoice)
 return(choice[compChoiceString])
 }
-
-let computerSelection = getComputerChoice();
 
 
 //gets player to type in their choice
@@ -40,42 +36,51 @@ return (playerChoiceString.charAt(0).toUpperCase() + playerChoiceString.slice(1,
 } 
 
 
-let playerSelection = playerChoice();
-
 //plays a single game by comparing computer and player choices and outputs a message
 
-function singleGame () {
-if (computerSelection == playerSelection) {
-    alert("It's a Draw! Try Again!")
+function singleGame(computerSelection, playerSelection) {
+if (computerSelection === playerSelection) {
+    console.log("It's a Draw! Try Again!")
 } else if (computerSelection === "Rock" && playerSelection === "Scissors") {
-    alert("Rock smashes Scissors! You Lose!")
+    console.log("Rock smashes Scissors! You Lose!"), computerScore++
 } else if (computerSelection === "Rock" && playerSelection === "Paper") {
-    alert("Paper wraps Rock! You Win!")
+    console.log("Paper wraps Rock! You Win!"), playerScore++
 } else if (computerSelection === "Scissors" && playerSelection === "Paper") {
-    alert("Scissors cut Paper! You Lose!")
+    console.log("Scissors cut Paper! You Lose!"), computerScore++
 } else if (computerSelection === "Scissors" && playerSelection === "Rock") {
-    alert("Rock smashes Scissors! You Win!")
+    console.log("Rock smashes Scissors! You Win!"), playerScore++
 } else if (computerSelection === "Paper" && playerSelection === "Scissors") {
-    alert("Scissors cut Paper! You Win!")
+    console.log("Scissors cut Paper! You Win!"), playerScore++
 } else if (computerSelection === "Paper" && playerSelection === "Rock") {
-    alert("Paper wraps Rock! You Lose!")
+    console.log("Paper wraps Rock! You Lose!"), computerScore++
 }
 
 }
 
-//calls the computer and players answers to be played in a single game
 
-singleGame();
+//runs the game five times in a row and logs scores
 
+computerScore = 0
+playerScore = 0
 
-//runs the game five times in a row
+function game () {
+    for (let i = 0; i < 3; i++) {
+    let computerSelection = getComputerChoice();
+    singleGame(computerSelection, playerChoice());
+    }
+  
+    console.log("The Computer Scored: " + computerScore + " You Scored: " + playerScore)
+    
+    if (computerScore > playerScore) {
+        console.log("You were beaten by an AI! Get to the mines...")
+    } else if (computerScore === playerScore) {
+        console.log("You've drawn with the computer! Well Played.")
+    } else if (computerScore < playerScore) {
+        console.log("You've beaten the computer! Just wait till Skynet...")
+    }
+}
 
-//let games = 3;
-//for (i = 1; i < games; i++) {
-//    playRound()
-//}
-
-
+game();
 
 </script>
 </body>
