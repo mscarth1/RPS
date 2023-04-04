@@ -13,27 +13,67 @@
 
 
 
-function getComputerChoice () {
+let choice = ["Rock", "Paper", "Scissors"];
 
-const choice = ["Rock", "Paper", "Scissors"];
 
-const computerSelection = Math.floor(Math.random() * choice.length);
-return(choice[computerSelection])
+//gets computer to choose randomly from three choices in an array
+
+
+
+function getComputerChoice() {
+
+let compChoice = Math.floor(Math.random() * choice.length);
+let compChoiceString = String(compChoice)
+return(choice[compChoiceString])
+}
+
+let computerSelection = getComputerChoice();
+
+
+//gets player to type in their choice
+
+function playerChoice() {
+
+let playerChoice = window.prompt("Choose your warrior:")
+let playerChoiceString = String(playerChoice)
+return (playerChoiceString.charAt(0).toUpperCase() + playerChoiceString.slice(1,).toLowerCase());
+} 
+
+
+let playerSelection = playerChoice();
+
+//plays a single game by comparing computer and player choices and outputs a message
+
+function singleGame () {
+if (computerSelection == playerSelection) {
+    alert("It's a Draw! Try Again!")
+} else if (computerSelection === "Rock" && playerSelection === "Scissors") {
+    alert("Rock smashes Scissors! You Lose!")
+} else if (computerSelection === "Rock" && playerSelection === "Paper") {
+    alert("Paper wraps Rock! You Win!")
+} else if (computerSelection === "Scissors" && playerSelection === "Paper") {
+    alert("Scissors cut Paper! You Lose!")
+} else if (computerSelection === "Scissors" && playerSelection === "Rock") {
+    alert("Rock smashes Scissors! You Win!")
+} else if (computerSelection === "Paper" && playerSelection === "Scissors") {
+    alert("Scissors cut Paper! You Win!")
+} else if (computerSelection === "Paper" && playerSelection === "Rock") {
+    alert("Paper wraps Rock! You Lose!")
+}
 
 }
 
-console.log(getComputerChoice())
+//calls the computer and players answers to be played in a single game
+
+singleGame();
 
 
+//runs the game five times in a row
 
-
-const playerSelection = window.prompt("Choose your warrior:")
-  
-console.log (playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1,).toLowerCase());
-
-
-
-
+//let games = 3;
+//for (i = 1; i < games; i++) {
+//    playRound()
+//}
 
 
 
