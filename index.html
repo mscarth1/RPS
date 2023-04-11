@@ -12,7 +12,6 @@
     <script>
 
 let choice = ["Rock", "Paper", "Scissors"];
-let playerSelection = playerChoice();
 
 
 
@@ -30,9 +29,8 @@ return(choice[compChoiceString])
 
 function playerChoice() {
 
-let playerChoice = window.prompt("Choose your warrior:")
-let playerChoiceString = String(playerChoice)
-return (playerChoiceString.charAt(0).toUpperCase() + playerChoiceString.slice(1,).toLowerCase());
+let playerChoice = window.prompt("Choose your warrior:");
+return (playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1,).toLowerCase());
 } 
 
 
