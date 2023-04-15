@@ -1,6 +1,10 @@
 
 let choice = ["Rock", "Paper", "Scissors"];
-
+const rock = document.getElementById("rock")
+const paper = document.getElementById("paper")
+const scissors = document.getElementById("scissors")
+computerScore = 0
+playerScore = 0
 
 //gets computer to choose randomly from three choices in an array
 
@@ -42,34 +46,46 @@ if (computerSelection === playerSelection) {
 
 }
 
-
 //compares inputs to evaluate winner
 
-function game() {
+// function game() {
      
-    let computerSelection = getComputerChoice();
-    singleGame(computerSelection, playerChoice());
+//     let computerSelection = getComputerChoice();
+//     singleGame(computerSelection, playerSelection);
 
-}
-
+// }
 
 //runs the game three times in a row and logs scores
 
-function games() {
+// function games() {
 
-    computerScore = 0
-    playerScore = 0
+//     computerScore = 0
+//     playerScore = 0
 
-    for (let i = 0; i < 3; i++)this.game();
+//     for (let i = 0; i < 3; i++)this.game();
 
-    console.log("The Computer Scored: " + computerScore + " You Scored: " + playerScore)
+//     console.log("The Computer Scored: " + computerScore + " You Scored: " + playerScore)
     
-    if (computerScore > playerScore) {
-        console.log("You were beaten by an AI! Get to the mines...")
-    } else if (computerScore === playerScore) {
-        console.log("You've drawn with the computer! Well Played.")
-    } else if (computerScore < playerScore) {
-        console.log("You've beaten the computer! Just wait till Skynet...")
-    }
+//     if (computerScore > playerScore) {
+//         console.log("You were beaten by an AI! Get to the mines...")
+//     } else if (computerScore === playerScore) {
+//         console.log("You've drawn with the computer! Well Played.")
+//     } else if (computerScore < playerScore) {
+//         console.log("You've beaten the computer! Just wait till Skynet...")
+//     }
 
-}
+// }
+
+
+
+rock.addEventListener("click", function() {
+    singleGame(getComputerChoice(), "Rock")
+});
+
+paper.addEventListener("click", function() {
+    singleGame(getComputerChoice(), "Paper")
+})
+
+scissors.addEventListener("click", function() {
+    singleGame(getComputerChoice(), "Scissors")
+})
