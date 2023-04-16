@@ -1,4 +1,5 @@
 
+
 const rock = document.getElementById("rock")
 const paper = document.getElementById("paper")
 const scissors = document.getElementById("scissors")
@@ -7,19 +8,17 @@ const playerScore = document.getElementById("playerScore")
 let pScore = 0
 let cScore = 0
 
+
 //gets computer to choose randomly from three choices in an array
 
 function getComputerChoice() {
+
     let choice = ["Rock", "Paper", "Scissors"];
     let compChoice = Math.floor(Math.random() * choice.length);
     let compChoiceString = String(compChoice)
     return(choice[compChoiceString])
 }
 
-
-
-
-//gets player to type in their choice
 
 // function playerChoice() {
 
@@ -47,7 +46,6 @@ if (computerSelection === playerSelection) {
     console.log("Paper wraps Rock! You Lose!"), cScore++
 }
 
-}
 
 function updateScore() {
     playerScore.textContent = "Player: " + `${pScore}`
@@ -122,3 +120,36 @@ scissors.addEventListener("click", function() {
     updateScore();
     resetScore();
 })
+
+
+//compares inputs to evaluate winner
+//
+//function game() {
+//     
+//    let computerSelection = getComputerChoice();
+//    singleGame(computerSelection, playerChoice());
+//
+//}
+
+
+//runs the game three times in a row and logs scores
+
+//function games() {
+//
+//    computerScore = 0
+//    playerScore = 0
+//
+//    for (let i = 0; i < 3; i++)this.game();
+//
+//    console.log("The Computer Scored: " + computerScore + " You Scored: " + playerScore)
+//    
+//    if (computerScore > playerScore) {
+//        console.log("You were beaten by an AI! Get to the mines...")
+//    } else if (computerScore === playerScore) {
+//        console.log("You've drawn with the computer! Well Played.")
+//    } else if (computerScore < playerScore) {
+//        console.log("You've beaten the computer! Just wait till Skynet...")
+//    }
+//
+//}
+
