@@ -4,7 +4,8 @@ const paper = document.getElementById("paper")
 const scissors = document.getElementById("scissors")
 const computerScore = document.getElementById("computerScore")
 const playerScore = document.getElementById("playerScore")
-
+let pScore = 0
+let cScore = 0
 
 //gets computer to choose randomly from three choices in an array
 
@@ -16,8 +17,7 @@ function getComputerChoice() {
 }
 
 
-pScore = 0
-cScore = 0
+
 
 //gets player to type in their choice
 
@@ -56,14 +56,20 @@ function updateScore() {
     if (pScore === 5) {
         resultLog.textContent = "You beat the AI! Skynet is watching..."
         
+        
     } else if (cScore === 5) {
         resultLog.textContent = "The AI beat you! Get to the mines..."
+        
         
     }
 }
 
 function resetScore () {
-    
+    if (pScore === 5 || cScore === 5) {
+        pScore = 0;
+        cScore = 0;
+        return;
+    }
 }
 
 //compares inputs to evaluate winner
@@ -102,14 +108,17 @@ function resetScore () {
 rock.addEventListener("click", function() {
     singleGame(getComputerChoice(), "Rock")
     updateScore();
+    resetScore();
 });
 
 paper.addEventListener("click", function() {
     singleGame(getComputerChoice(), "Paper")
     updateScore();
+    resetScore();
 })
 
 scissors.addEventListener("click", function() {
     singleGame(getComputerChoice(), "Scissors")
     updateScore();
+    resetScore();
 })
