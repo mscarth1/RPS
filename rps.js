@@ -45,7 +45,7 @@ if (computerSelection === playerSelection) {
 } else if (computerSelection === "Paper" && playerSelection === "Rock") {
     console.log("Paper wraps Rock! You Lose!"), cScore++
 }
-
+}
 
 function updateScore() {
     playerScore.textContent = "Player: " + `${pScore}`
@@ -113,10 +113,12 @@ paper.addEventListener("click", function() {
     singleGame(getComputerChoice(), "Paper")
     updateScore();
     resetScore();
-})
+});
 
 scissors.addEventListener("click", function() {
     singleGame(getComputerChoice(), "Scissors")
     updateScore();
     resetScore();
-})
+});
+
+
