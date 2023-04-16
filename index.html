@@ -11,13 +11,26 @@
 
 <script type="text/javascript" src="rps.js" defer></script>
 
-<button onclick="game()">Play</button>
-
 <div id="button-container">
-    <button id="rock" value="Rock">Rock</button>
+    <button id="rock">Rock</button>
     <button id="paper">Paper</button>
     <button id="scissors">Scissors</button>
 </div>
+
+<div class="score-container">
+    <div class="score-box">
+        <div class="sign"></div>
+        <div class="score" id="playerScore">Player: 0</div>
+    </div>
+    <div class="score-box">
+        <div class="sign"></div>
+        <div class="score" id="computerScore">Computer: 0</div>
+    </div>
+    <div class="result">
+        <div id="resultLog">Awaiting Results...</div>
+    </div>
+</div>
+
 
 </body>
 
